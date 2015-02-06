@@ -97,7 +97,7 @@ echo "<html>\n";
 // declaration
 function foo()
 {
-    // function body
+  // function body
 }
 ```
 
@@ -109,15 +109,15 @@ effects; i.e., an example of what to emulate:
 // declaration
 function foo()
 {
-    // function body
+  // function body
 }
 
 // conditional declaration is *not* a side effect
 if (! function_exists('bar')) {
-    function bar()
-    {
-        // function body
-    }
+  function bar()
+  {
+    // function body
+  }
 }
 ```
 
@@ -172,8 +172,8 @@ namespace Vendor\Model;
 
 class Foo
 {
-    const VERSION = '1.0';
-    const DATE_APPROVED = '2012-06-01';
+  const VERSION = '1.0';
+  const DATE_APPROVED = '2012-06-01';
 }
 ```
 
@@ -278,7 +278,7 @@ use OtherVendor\OtherPackage\BazClass;
 
 class ClassName extends ParentClass implements \ArrayAccess, \Countable
 {
-    // constants, properties, methods
+  // constants, properties, methods
 }
 ```
 
@@ -295,11 +295,11 @@ use BarClass as Bar;
 use OtherVendor\OtherPackage\BazClass;
 
 class ClassName extends ParentClass implements
-    \ArrayAccess,
-    \Countable,
-    \Serializable
+  \ArrayAccess,
+  \Countable,
+  \Serializable
 {
-    // constants, properties, methods
+  // constants, properties, methods
 }
 ```
 
@@ -322,7 +322,7 @@ namespace Vendor\Package;
 
 class ClassName
 {
-    public $foo = null;
+  public $foo = null;
 }
 ```
 
@@ -347,10 +347,10 @@ namespace Vendor\Package;
 
 class ClassName
 {
-    public function fooBarBaz($arg1, &$arg2, $arg3 = [])
-    {
-        // method body
-    }
+  public function fooBarBaz($arg1, &$arg2, $arg3 = [])
+  {
+    // method body
+  }
 }
 ```
 
@@ -368,10 +368,10 @@ namespace Vendor\Package;
 
 class ClassName
 {
-    public function foo($arg1, &$arg2, $arg3 = [])
-    {
-        // method body
-    }
+  public function foo($arg1, &$arg2, $arg3 = [])
+  {
+    // method body
+  }
 }
 ```
 
@@ -389,13 +389,13 @@ namespace Vendor\Package;
 
 class ClassName
 {
-    public function aVeryLongMethodName(
-        ClassTypeHint $arg1,
-        &$arg2,
-        array $arg3 = []
-    ) {
-        // method body
-    }
+  public function aVeryLongMethodName(
+    ClassTypeHint $arg1,
+    &$arg2,
+    array $arg3 = []
+  ) {
+      // method body
+  }
 }
 ```
 
@@ -413,14 +413,14 @@ namespace Vendor\Package;
 
 abstract class ClassName
 {
-    protected static $foo;
+  protected static $foo;
 
-    abstract protected function zim();
+  abstract protected function zim();
 
-    final public static function bar()
-    {
-        // method body
-    }
+  final public static function bar()
+  {
+    // method body
+  }
 }
 ```
 
@@ -446,9 +446,9 @@ next line, and there MUST be only one argument per line.
 ```php
 <?php
 $foo->bar(
-    $longArgument,
-    $longerArgument,
-    $muchLongerArgument
+  $longArgument,
+  $longerArgument,
+  $muchLongerArgument
 );
 ```
 
@@ -478,11 +478,11 @@ closing brace from the earlier body.
 ```php
 <?php
 if ($expr1) {
-    // if body
+  // if body
 } elseif ($expr2) {
-    // elseif body
+  // elseif body
 } else {
-    // else body;
+  // else body;
 }
 ```
 
@@ -501,20 +501,20 @@ indented at the same level as the `case` body. There MUST be a comment such as
 ```php
 <?php
 switch ($expr) {
-    case 0:
-        echo 'First case, with a break';
-        break;
-    case 1:
-        echo 'Second case, which falls through';
-        // no break
-    case 2:
-    case 3:
-    case 4:
-        echo 'Third case, return instead of break';
-        return;
-    default:
-        echo 'Default case';
-        break;
+  case 0:
+    echo 'First case, with a break';
+    break;
+  case 1:
+    echo 'Second case, which falls through';
+    // no break
+  case 2:
+  case 3:
+  case 4:
+    echo 'Third case, return instead of break';
+    return;
+  default:
+    echo 'Default case';
+    break;
 }
 ```
 
@@ -527,7 +527,7 @@ parentheses, spaces, and braces.
 ```php
 <?php
 while ($expr) {
-    // structure body
+  // structure body
 }
 ```
 
@@ -537,7 +537,7 @@ of parentheses, spaces, and braces.
 ```php
 <?php
 do {
-    // structure body;
+  // structure body;
 } while ($expr);
 ```
 
@@ -549,7 +549,7 @@ spaces, and braces.
 ```php
 <?php
 for ($i = 0; $i < 10; $i++) {
-    // for body
+  // for body
 }
 ```
 
@@ -561,7 +561,7 @@ parentheses, spaces, and braces.
 ```php
 <?php
 foreach ($iterable as $key => $value) {
-    // foreach body
+  // foreach body
 }
 ```
 
@@ -573,11 +573,11 @@ parentheses, spaces, and braces.
 ```php
 <?php
 try {
-    // try body
+  // try body
 } catch (FirstExceptionType $e) {
-    // catch body
+  // catch body
 } catch (OtherExceptionType $e) {
-    // catch body
+  // catch body
 }
 ```
 
@@ -605,11 +605,11 @@ parentheses, commas, spaces, and braces:
 ```php
 <?php
 $closureWithArgs = function ($arg1, $arg2) {
-    // body
+  // body
 };
 
 $closureWithArgsAndVars = function ($arg1, $arg2) use ($var1, $var2) {
-    // body
+  // body
 };
 ```
 
@@ -628,47 +628,47 @@ variable lists split across multiple lines.
 ```php
 <?php
 $longArgs_noVars = function (
-    $longArgument,
-    $longerArgument,
-    $muchLongerArgument
+  $longArgument,
+  $longerArgument,
+  $muchLongerArgument
 ) {
-   // body
+  // body
 };
 
 $noArgs_longVars = function () use (
-    $longVar1,
-    $longerVar2,
-    $muchLongerVar3
+  $longVar1,
+  $longerVar2,
+  $muchLongerVar3
 ) {
-   // body
+  // body
 };
 
 $longArgs_longVars = function (
-    $longArgument,
-    $longerArgument,
-    $muchLongerArgument
+  $longArgument,
+  $longerArgument,
+  $muchLongerArgument
 ) use (
-    $longVar1,
-    $longerVar2,
-    $muchLongerVar3
+  $longVar1,
+  $longerVar2,
+  $muchLongerVar3
 ) {
-   // body
+  // body
 };
 
 $longArgs_shortVars = function (
-    $longArgument,
-    $longerArgument,
-    $muchLongerArgument
+  $longArgument,
+  $longerArgument,
+  $muchLongerArgument
 ) use ($var1) {
-   // body
+  // body
 };
 
 $shortArgs_longVars = function ($arg) use (
-    $longVar1,
-    $longerVar2,
-    $muchLongerVar3
+  $longVar1,
+  $longerVar2,
+  $muchLongerVar3
 ) {
-   // body
+  // body
 };
 ```
 
@@ -678,10 +678,10 @@ in a function or method call as an argument.
 ```php
 <?php
 $foo->bar(
-    $arg1,
-    function ($arg2) use ($var1) {
-        // body
-    },
-    $arg3
+  $arg1,
+  function ($arg2) use ($var1) {
+    // body
+  },
+  $arg3
 );
 ```
