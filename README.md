@@ -117,7 +117,9 @@ if (! function_exists('bar')) {
 
 ## Namespace and Class Names
 
-Namespaces and classes MUST follow an "autoloading" PSR: [[PSR-0], [PSR-4]].
+Namespaces and classes MUST follow an "autoloading" PSR:
+[PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md) and
+[PSR-4](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader-meta.md).
 
 This means each class is in a file by itself, and is in a namespace of at
 least one level: a top-level vendor name.
