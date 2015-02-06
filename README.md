@@ -40,7 +40,13 @@ and [PSR-2-coding-style-guide](https://github.com/php-fig/fig-standards/blob/mas
 
 ## Tools
 
-//TODO Tools
+The [PHP\_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) can be used to lint your code.
+You can set the configuration to `PSR2`. However you need to adjust the tabwidth to 2 spaces.
+
+```
+$ phpcs --config-set default_standard PSR2
+$ phpcs --config-set tab_width 2
+```
 
 ## Keywords
 
