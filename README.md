@@ -1,10 +1,10 @@
 # PHP Style Guide
 
-This is Digitpaint's PHP Style Guide.
+This is North McCormicks's PHP Style Guide.
 
-It was inspired by Framework Interop Group's guide:
-[PSR-1-basic-coding-standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md)
-and [PSR-2-coding-style-guide](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md).
+It was inspired by Digitpaint's/Framework Interop Group's guide:
+[PSR-1-basic-coding-standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md),  [PSR-2-coding-style-guide](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md), 
+and [DigitPaint/php-style-guide](https://github.com/DigitPaint/php-style-guide).
 
 ## Table of Contents
   1.  [Tools](#tools)
@@ -38,16 +38,6 @@ and [PSR-2-coding-style-guide](https://github.com/php-fig/fig-standards/blob/mas
       1. [`try`, `catch`](#try-catch)
   1.  [Closures](#closures)
 
-## Tools
-
-The [PHP\_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) can be used to lint your code.
-You can set the configuration to `PSR2`. However you need to adjust the tabwidth to 2 spaces.
-
-```
-$ phpcs --config-set default_standard PSR2
-$ phpcs --config-set tab_width 2
-```
-
 ## Keywords
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
@@ -58,7 +48,7 @@ interpreted as described in [RFC 2119].
 
 ## PHP Tags
 
-PHP code MUST use the long `<?php ?>` tags or the short-echo `<?= ?>` tags; it
+PHP code MUST use the long `<?php ?>` tags; it
 MUST NOT use the other tag variations.
 
 ## Character Encoding
@@ -85,20 +75,19 @@ i.e, an example of what to avoid:
 
 ```php
 <?php
-// side effect: change ini settings
-ini_set('error_reporting', E_ALL);
+  // side effect: change ini settings
+  ini_set('error_reporting', E_ALL);
 
-// side effect: loads a file
-include "file.php";
+  // side effect: loads a file
+  include "file.php";
 
-// side effect: generates output
-echo "<html>\n";
+  // side effect: generates output
+  echo "<html>\n";
 
-// declaration
-function foo()
-{
-  // function body
-}
+  // declaration
+  function foo() {
+    // function body
+  }
 ```
 
 The following example is of a file that contains declarations without side
@@ -106,19 +95,17 @@ effects; i.e., an example of what to emulate:
 
 ```php
 <?php
-// declaration
-function foo()
-{
-  // function body
-}
-
-// conditional declaration is *not* a side effect
-if (! function_exists('bar')) {
-  function bar()
-  {
+  // declaration
+  function foo() {
     // function body
   }
-}
+
+  // conditional declaration is *not* a side effect
+  if (!function_exists('bar')) {
+    function bar() {
+      // function body
+    }
+  }
 ```
 
 ## Namespace and Class Names
@@ -138,12 +125,11 @@ For example:
 
 ```php
 <?php
-// PHP 5.3 and later:
-namespace Vendor\Model;
+  // PHP 5.3 and later:
+  namespace Vendor\Model;
 
-class Foo
-{
-}
+  class Foo {
+  }
 ```
 
 Code written for 5.2.x and before SHOULD use the pseudo-namespacing convention
@@ -151,10 +137,9 @@ of `Vendor_` prefixes on class names.
 
 ```php
 <?php
-// PHP 5.2.x and earlier:
-class Vendor_Model_Foo
-{
-}
+  // PHP 5.2.x and earlier:
+  class Vendor_Model_Foo {
+  }
 ```
 
 ## Class Constants, Properties, and Methods
@@ -168,13 +153,12 @@ For example:
 
 ```php
 <?php
-namespace Vendor\Model;
+  namespace Vendor\Model;
 
-class Foo
-{
-  const VERSION = '1.0';
-  const DATE_APPROVED = '2012-06-01';
-}
+  class Foo {
+    const VERSION = '1.0';
+    const DATE_APPROVED = '2012-06-01';
+  }
 ```
 
 ### Properties
@@ -196,7 +180,7 @@ All PHP files MUST use the Unix LF (linefeed) line ending.
 
 All PHP files MUST end with a single blank line.
 
-The closing `?>` tag MUST be omitted from files containing only PHP.
+**The closing `?>` tag MUST be omitted from files containing only PHP.**
 
 ## Lines
 
@@ -247,13 +231,13 @@ For example:
 
 ```php
 <?php
-namespace Vendor\Package;
+  namespace Vendor\Package;
 
-use FooClass;
-use BarClass as Bar;
-use OtherVendor\OtherPackage\BazClass;
+  use FooClass;
+  use BarClass as Bar;
+  use OtherVendor\OtherPackage\BazClass;
 
-// ... additional PHP code ...
+  // ... additional PHP code ...
 ```
 
 ## Classes, Properties, and Methods
@@ -270,16 +254,15 @@ for the class MUST go on the next line after the body.
 
 ```php
 <?php
-namespace Vendor\Package;
+  namespace Vendor\Package;
 
-use FooClass;
-use BarClass as Bar;
-use OtherVendor\OtherPackage\BazClass;
+  use FooClass;
+  use BarClass as Bar;
+  use OtherVendor\OtherPackage\BazClass;
 
-class ClassName extends ParentClass implements \ArrayAccess, \Countable
-{
-  // constants, properties, methods
-}
+  class ClassName extends ParentClass implements \ArrayAccess, \Countable {
+    // constants, properties, methods
+  }
 ```
 
 Lists of `implements` MAY be split across multiple lines, where each
@@ -288,19 +271,18 @@ MUST be on the next line, and there MUST be only one interface per line.
 
 ```php
 <?php
-namespace Vendor\Package;
+  namespace Vendor\Package;
 
-use FooClass;
-use BarClass as Bar;
-use OtherVendor\OtherPackage\BazClass;
+  use FooClass;
+  use BarClass as Bar;
+  use OtherVendor\OtherPackage\BazClass;
 
-class ClassName extends ParentClass implements
-  \ArrayAccess,
-  \Countable,
-  \Serializable
-{
-  // constants, properties, methods
-}
+  class ClassName extends ParentClass implements
+    \ArrayAccess,
+    \Countable,
+    \Serializable {
+    // constants, properties, methods
+  }
 ```
 
 ### Properties
@@ -318,12 +300,11 @@ A property declaration looks like the following.
 
 ```php
 <?php
-namespace Vendor\Package;
+  namespace Vendor\Package;
 
-class ClassName
-{
-  public $foo = null;
-}
+  class ClassName {
+    public $foo = null;
+  }
 ```
 
 ### Methods
@@ -334,7 +315,7 @@ Method names SHOULD NOT be prefixed with a single underscore to indicate
 protected or private visibility.
 
 Method names MUST NOT be declared with a space after the method name. The
-opening brace MUST go on its own line, and the closing brace MUST go on the
+opening brace MUST go on the same line, and the closing brace MUST go on the
 next line following the body. There MUST NOT be a space after the opening
 parenthesis, and there MUST NOT be a space before the closing parenthesis.
 
@@ -343,15 +324,13 @@ parentheses, commas, spaces, and braces:
 
 ```php
 <?php
-namespace Vendor\Package;
+  namespace Vendor\Package;
 
-class ClassName
-{
-  public function fooBarBaz($arg1, &$arg2, $arg3 = [])
-  {
-    // method body
+  class ClassName {
+    public function fooBarBaz($arg1, &$arg2, $arg3 = []) {
+      // method body
+    }
   }
-}
 ```
 
 ### Method Arguments
@@ -364,15 +343,13 @@ list.
 
 ```php
 <?php
-namespace Vendor\Package;
+  namespace Vendor\Package;
 
-class ClassName
-{
-  public function foo($arg1, &$arg2, $arg3 = [])
-  {
-    // method body
+  class ClassName {
+    public function foo($arg1, &$arg2, $arg3 = []) {
+      // method body
+    }
   }
-}
 ```
 
 Argument lists MAY be split across multiple lines, where each subsequent line
@@ -385,18 +362,17 @@ between them.
 
 ```php
 <?php
-namespace Vendor\Package;
+  namespace Vendor\Package;
 
-class ClassName
-{
-  public function aVeryLongMethodName(
-    ClassTypeHint $arg1,
-    &$arg2,
-    array $arg3 = []
-  ) {
-      // method body
+  class ClassName {
+    public function aVeryLongMethodName(
+      ClassTypeHint $arg1,
+      &$arg2,
+      array $arg3 = []
+    ) {
+        // method body
+    }
   }
-}
 ```
 
 ### `abstract`, `final`, and `static`
@@ -409,19 +385,17 @@ declaration.
 
 ```php
 <?php
-namespace Vendor\Package;
+  namespace Vendor\Package;
 
-abstract class ClassName
-{
-  protected static $foo;
+  abstract class ClassName {
+    protected static $foo;
 
-  abstract protected function zim();
+    abstract protected function zim();
 
-  final public static function bar()
-  {
-    // method body
+    final public static function bar() {
+      // method body
+    }
   }
-}
 ```
 
 ### Method and Function Calls
@@ -434,9 +408,10 @@ each comma, and there MUST be one space after each comma.
 
 ```php
 <?php
-bar();
-$foo->bar($arg1);
-Foo::bar($arg2, $arg3);
+
+  bar();
+  $foo->bar($arg1);
+  Foo::bar($arg2, $arg3);
 ```
 
 Argument lists MAY be split across multiple lines, where each subsequent line
@@ -445,11 +420,11 @@ next line, and there MUST be only one argument per line.
 
 ```php
 <?php
-$foo->bar(
-  $longArgument,
-  $longerArgument,
-  $muchLongerArgument
-);
+  $foo->bar(
+    $longArgument,
+    $longerArgument,
+    $muchLongerArgument
+  );
 ```
 
 ## Control Structures
@@ -500,22 +475,24 @@ indented at the same level as the `case` body. There MUST be a comment such as
 
 ```php
 <?php
-switch ($expr) {
-  case 0:
-    echo 'First case, with a break';
+  switch ($expr) {
+    case 0:
+      echo 'First case, with a break';
     break;
-  case 1:
-    echo 'Second case, which falls through';
-    // no break
-  case 2:
-  case 3:
-  case 4:
-    echo 'Third case, return instead of break';
-    return;
-  default:
-    echo 'Default case';
+    
+    case 1:
+      echo 'Second case, which falls through';
+      // no break
+    case 2:
+    case 3:
+    case 4:
+      echo 'Third case, return instead of break';
+      return;
+      
+    default:
+      echo 'Default case';
     break;
-}
+  }
 ```
 
 
@@ -526,9 +503,9 @@ parentheses, spaces, and braces.
 
 ```php
 <?php
-while ($expr) {
-  // structure body
-}
+  while ($expr) {
+    // structure body
+  }
 ```
 
 Similarly, a `do while` statement looks like the following. Note the placement
@@ -536,9 +513,9 @@ of parentheses, spaces, and braces.
 
 ```php
 <?php
-do {
-  // structure body;
-} while ($expr);
+  do {
+    // structure body;
+  } while ($expr);
 ```
 
 ### `for`
@@ -548,9 +525,9 @@ spaces, and braces.
 
 ```php
 <?php
-for ($i = 0; $i < 10; $i++) {
-  // for body
-}
+  for ($i = 0; $i < 10; $i++) {
+    // for body
+  }
 ```
 
 ### `foreach`
@@ -560,9 +537,9 @@ parentheses, spaces, and braces.
 
 ```php
 <?php
-foreach ($iterable as $key => $value) {
-  // foreach body
-}
+  foreach ($iterable as $key => $value) {
+    // foreach body
+  }
 ```
 
 ### `try`, `catch`
@@ -572,13 +549,13 @@ parentheses, spaces, and braces.
 
 ```php
 <?php
-try {
-  // try body
-} catch (FirstExceptionType $e) {
-  // catch body
-} catch (OtherExceptionType $e) {
-  // catch body
-}
+  try {
+    // try body
+  } catch (FirstExceptionType $e) {
+    // catch body
+  } catch (OtherExceptionType $e) {
+    // catch body
+  }
 ```
 
 ## Closures
@@ -604,13 +581,13 @@ parentheses, commas, spaces, and braces:
 
 ```php
 <?php
-$closureWithArgs = function ($arg1, $arg2) {
-  // body
-};
+  $closureWithArgs = function ($arg1, $arg2) {
+    // body
+  };
 
-$closureWithArgsAndVars = function ($arg1, $arg2) use ($var1, $var2) {
-  // body
-};
+  $closureWithArgsAndVars = function ($arg1, $arg2) use ($var1, $var2) {
+    // body
+  };
 ```
 
 Argument lists and variable lists MAY be split across multiple lines, where
@@ -627,49 +604,49 @@ variable lists split across multiple lines.
 
 ```php
 <?php
-$longArgs_noVars = function (
-  $longArgument,
-  $longerArgument,
-  $muchLongerArgument
-) {
-  // body
-};
+  $longArgs_noVars = function (
+    $longArgument,
+    $longerArgument,
+    $muchLongerArgument
+  ) {
+    // body
+  };
 
-$noArgs_longVars = function () use (
-  $longVar1,
-  $longerVar2,
-  $muchLongerVar3
-) {
-  // body
-};
+  $noArgs_longVars = function () use (
+    $longVar1,
+    $longerVar2,
+    $muchLongerVar3
+  ) {
+    // body
+  };
 
-$longArgs_longVars = function (
-  $longArgument,
-  $longerArgument,
-  $muchLongerArgument
-) use (
-  $longVar1,
-  $longerVar2,
-  $muchLongerVar3
-) {
-  // body
-};
+  $longArgs_longVars = function (
+    $longArgument,
+    $longerArgument,
+    $muchLongerArgument
+  ) use (
+    $longVar1,
+    $longerVar2,
+    $muchLongerVar3
+  ) {
+    // body
+  };
 
-$longArgs_shortVars = function (
-  $longArgument,
-  $longerArgument,
-  $muchLongerArgument
-) use ($var1) {
-  // body
-};
+  $longArgs_shortVars = function (
+    $longArgument,
+    $longerArgument,
+    $muchLongerArgument
+  ) use ($var1) {
+    // body
+  };
 
-$shortArgs_longVars = function ($arg) use (
-  $longVar1,
-  $longerVar2,
-  $muchLongerVar3
-) {
-  // body
-};
+  $shortArgs_longVars = function ($arg) use (
+    $longVar1,
+    $longerVar2,
+    $muchLongerVar3
+  ) {
+    // body
+  };
 ```
 
 Note that the formatting rules also apply when the closure is used directly
@@ -677,11 +654,11 @@ in a function or method call as an argument.
 
 ```php
 <?php
-$foo->bar(
-  $arg1,
-  function ($arg2) use ($var1) {
-    // body
-  },
-  $arg3
-);
+  $foo->bar(
+    $arg1,
+    function ($arg2) use ($var1) {
+      // body
+    },
+    $arg3
+  );
 ```
